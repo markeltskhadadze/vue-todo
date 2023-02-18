@@ -1,16 +1,24 @@
 <template>
-  <div id="app" class="h-screen">
+  <!-- <div id="app" class="h-screen">
     <ListItemsPage />
+  </div> -->
+  <div id="app">
+    <component :is="layout">
+      <router-view></router-view>
+    </component>
   </div>
 </template>
 
 <script>
-import ListItemsPage from './components/ListItemsPage.vue'
+// import ListItemsPage from './components/ListItemsPage.vue'
 
 export default {
   name: 'App',
-  components: {
-    ListItemsPage
+  computed: {
+    layout(){
+      (this.$route.meta.layout)
+      return this.$route.meta.layout || 'base-layout'
+    }
   }
 }
 </script>
