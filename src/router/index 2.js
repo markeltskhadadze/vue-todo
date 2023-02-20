@@ -4,7 +4,6 @@ import HomePage from '@/components/HomePage.vue'
 import AdminAuth from '@/components/admin/AdminAuth.vue'
 import DashboardAdmin from '@/components/admin/Dashboard.vue'
 import CategoryAdmin from '@/components/admin/CategoryAdmin.vue'
-import Profile from '@/components/admin/user/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -37,14 +36,6 @@ const routes = [
     path: '/admin/category',
     name: 'category',
     component: CategoryAdmin,
-    meta: {
-      layout: 'admin-layout'
-    }
-  },
-  {
-    path: '/admin/profile',
-    name: 'profile',
-    component: Profile,
     meta: {
       layout: 'admin-layout'
     }

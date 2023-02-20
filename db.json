@@ -1,0 +1,18 @@
+{
+  "user": [
+    {
+      "login": "Mark",
+      "password": "password",
+      "id": 1,
+      "todoItems": 1,
+      "categories": 1
+    },
+    {
+      "login": "test",
+      "password": "test",
+      "id": 2,
+      "todoItems": 1,
+      "categories": 1
+    }
+  ]
+}
