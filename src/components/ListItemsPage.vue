@@ -1,19 +1,23 @@
 <template>
   <div>
-    <div class="flex justify-center">
-      <div class="flex flex-col items-center p-4 rounded bg-white mx-16 w-[600px]"
+    <div class="d-flex mt-2 justify-content-center align-items-baseline">
+      <input class="h-10 border border-black p-2 mr-2.5 rounded-md" type="text" v-model="categoryName">
+      <button class="border border-black p-2 rounded-md text-white bg-emerald-500 hover:bg-green-400" @click="addCategory">Add new category</button>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="d-flex flex-column items-center p-4 rounded bg-white mx-16 w-[600px]"
         v-for="category in categories" :key="category.id"
         @drop="onDrop($event, category.id)"
         @dragenter.prevent
         @dragover.prevent
       >
-        <div class="flex">
-          <h4 class="bg-slate-600 text-white w-[600px] rounded flex justify-center items-center">{{ category.title }}</h4>
+        <div class="d-flex">
+          <h4 class="bg-slate-600 text-white w-[600px] rounded d-flex justify-content-center align-items-baseline">{{ category.title }}</h4>
           <button @click="deleteCategory(category.id)"
             class="border border-black p-2 rounded-md text-white bg-red-500 hover:bg-red-400 ml-3.5"
           >Delete</button>
         </div>
-      <div class="flex mt-2">
+      <div class="d-flex mt-2">
         <input v-model="todoName" class="h-10 border border-black p-2 mr-2.5 rounded-md" type="text" placeholder="Enter todo name">
         <button @click="addTodo(category.id)" class="border border-black p-2 rounded-md text-white bg-emerald-500 hover:bg-green-400">Add</button>
       </div>
@@ -25,10 +29,6 @@
             draggable="true"
           />
         </div>
-      </div>
-      <div class="flex mt-2 items-baseline">
-        <input class="h-10 border border-black p-2 mr-2.5 rounded-md" type="text" v-model="categoryName">
-        <button class="border border-black p-2 rounded-md text-white bg-emerald-500 hover:bg-green-400" @click="addCategory">Add new category</button>
       </div>
     </div>
   </div>
@@ -49,11 +49,13 @@ export default {
     id: null,
     categoryId: '',
     selectedCategory: '',
-    categoryName: ''
+    categoryName: '',
+    checked: null
   }),
   methods: {
     ...mapActions(['addNewTodo', 'addNewCategory']),
     ...mapMutations(['deleteCategory']),
+    // ...mapState(['user']),
     onDragStart (event, item) {
       event.dataTransfer.dropEffect = 'move'
       event.dataTransfer.effectAllowed = 'move'
@@ -81,7 +83,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['todoItems', 'categories'])
+    ...mapGetters(['todoItems', 'categories', 'user'])
+  },
+  created () {
+    this.checked = localStorage.getItem('enter')
+    if (this.checked === 'false' || this.checked === null) {
+      this.$router.push('/admin')
+    }
   }
 }
 

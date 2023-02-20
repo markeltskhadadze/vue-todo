@@ -1,7 +1,4 @@
 <template>
-  <!-- <div id="app" class="h-screen">
-    <ListItemsPage />
-  </div> -->
   <div id="app">
     <component :is="layout">
       <router-view></router-view>
@@ -10,7 +7,6 @@
 </template>
 
 <script>
-// import ListItemsPage from './components/ListItemsPage.vue'
 
 export default {
   name: 'App',
