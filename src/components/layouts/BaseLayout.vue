@@ -17,6 +17,6 @@ export default {
   name: 'BaseLayout',
   components: {
     Header
-  },
+  }
 }
 </script>

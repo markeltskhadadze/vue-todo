@@ -30,7 +30,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'AdminAuth',
+  name: 'LoginPage',
   data: () => ({
     name: '',
     password: ''

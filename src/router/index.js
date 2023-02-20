@@ -5,6 +5,8 @@ import AdminAuth from '@/components/admin/AdminAuth.vue'
 import DashboardAdmin from '@/components/admin/Dashboard.vue'
 import CategoryAdmin from '@/components/admin/CategoryAdmin.vue'
 import Profile from '@/components/admin/user/Profile.vue'
+import LoginPage from '@/components/LoginPage.vue'
+import ListItemsPage from '@/components/ListItemsPage.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +49,22 @@ const routes = [
     component: Profile,
     meta: {
       layout: 'admin-layout'
+    }
+  },
+  {
+    path: '/login',
+    name: 'login-page',
+    component: LoginPage,
+    meta: {
+      layout: 'base-layout'
+    }
+  },
+  {
+    path: '/todo',
+    name: 'list-items-page',
+    component: ListItemsPage,
+    meta: {
+      layout: 'base-layout'
     }
   }
 ]

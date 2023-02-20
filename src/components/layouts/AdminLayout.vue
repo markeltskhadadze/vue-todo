@@ -32,7 +32,6 @@ export default {
   methods: {
     signOut () {
       localStorage.removeItem('enter')
-      localStorage.removeItem('userId')
       this.$router.push('/admin')
     }
   }

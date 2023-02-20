@@ -1,23 +1,39 @@
 <template>
-  <div class="d-flex justify-content-between align-items-baseline">
-    <div class="ms-5">
-      <img class="logo-img " src="/logo-social.png" alt="">
-    </div>
-    <div class="d-flex me-5">
-      <ul v-for="(link, index) in nav" :key="index">
-        <li class="list-inline-item">{{ link }}</li>
+  <div>
+    <div class="d-flex justify-content-end me-5">
+      <ul>
+        <li @click="loginPage" class="list-inline-item">{{ linkName }}</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-  name: 'Header-test',
+  name: 'HeaderBase',
+  data: () => ({
+    checked: null
+  }),
+  methods: {
+    loginPage () {
+      this.$router.push('/login')
+    },
+    
+  },
   computed: {
-    ...mapState(['nav'])
+    linkName () {
+      if (this.checked === 'false' || this.checked === null) {
+        return 'Login'
+      } else {
+        return 'LogOut'
+      }
+    }
+  },
+  created () {
+    this.checked = localStorage.getItem('enter')
+    if (this.checked === 'false' || this.checked === null) {
+      this.$router.push('/login')
+    }
   }
 }
 </script>

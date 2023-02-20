@@ -35,7 +35,9 @@ export default new Vuex.Store({
      addNewTodo(context, payload) {
       context.commit('setNewTodo', payload)
     },
-    addNewCategory(context, payload) {
+    async addNewCategory(context, payload) {
+      // let id = context.state.user.map(user => user.id).join()
+      // await axios.get(`http://localhost:3000/user/${id}`, payload)
       context.commit('setNewCategory', payload)
     },
     async login (context, payload) {
@@ -46,7 +48,7 @@ export default new Vuex.Store({
       if (filterUserData.length) {
         localStorage.setItem('enter', true)
         context.commit('setUserData', filterUserData)
-        router.push('/admin/dashboard')
+        router.push('/todo')
       } else {
         localStorage.setItem('enter', false)
       }
@@ -54,6 +56,7 @@ export default new Vuex.Store({
   },
   getters: {
     todoItems: state => state.todoItems,
-    categories: state => state.categories
+    categories: state => state.categories,
+    user: state => state.user.map(user => user)
   }
 })
