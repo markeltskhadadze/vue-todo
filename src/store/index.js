@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+import router from '@/router'
+
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    user: null,
     todoItems: [],
     categories: []  
   },
@@ -23,6 +27,9 @@ export default new Vuex.Store({
       const index = state.categories.findIndex(category => category.id === data)
       state.categories.splice(index, 1)
     },
+    setUserData (state, data) {
+      state.user = data
+    }
   },
   actions: {
      addNewTodo(context, payload) {
@@ -31,6 +38,19 @@ export default new Vuex.Store({
     addNewCategory(context, payload) {
       context.commit('setNewCategory', payload)
     },
+    async login (context, payload) {
+      const result = await axios.get('http://localhost:3000/user', payload)
+      const filterUserData = result.data.filter(user => 
+        user.login === payload.login &&
+        user.password === payload.password)
+      if (filterUserData.length) {
+        localStorage.setItem('enter', true)
+        context.commit('setUserData', filterUserData)
+        router.push('/admin/dashboard')
+      } else {
+        localStorage.setItem('enter', false)
+      }
+     }
   },
   getters: {
     todoItems: state => state.todoItems,

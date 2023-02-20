@@ -5,14 +5,14 @@
         <li class="list-inline-item">
           <span class="overlay"></span>
           <router-link to="#" class="nav-list-link">
-            <span class="icon"><b-icon style="color: #ed9c28;" icon="laptop"></b-icon></span>
+            <span class="icon"></span>
             <span class="title">Dashboard</span>
           </router-link>
         </li>
         <li class="list-inline-item">
           <span class="overlay"></span>
           <router-link to="/admin/category" class="nav-list-link">
-            <span class="icon"><b-icon style="color: #ed9c28;" icon="laptop"></b-icon></span>
+            <span class="icon"></span>
             <span class="title">Category</span>
           </router-link>
         </li>

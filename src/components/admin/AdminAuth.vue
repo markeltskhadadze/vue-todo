@@ -15,10 +15,10 @@
           >
           <div>
             <div class="btn-edit">
-              <button
+              <b-button
                 @click="submitLoginData"
                 size="lg"
-              >LOGIN</button>
+              >LOGIN</b-button>
             </div>
           </div>
         </div>

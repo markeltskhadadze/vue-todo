@@ -1,24 +1,18 @@
 <template>
-  <section class="admin-panel">
+  <div>
     <div class="text-end">
       <b-dropdown id="dropdown-1" text="Menu" class="m-md-2">
-        <b-dropdown-item>
-          <router-link to="/admin/profile">
-            <span class="title">Profile</span>
-          </router-link>
-        </b-dropdown-item>
+        <b-dropdown-item>Profile</b-dropdown-item>
         <b-dropdown-item @click="signOut">Sign Out</b-dropdown-item>
       </b-dropdown>
     </div>
-    <SideBar />
-    <div class="container-fluid page-body-wrapper">
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <router-view></router-view>
-        </div>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <router-view></router-view>
       </div>
     </div>
-  </section>
+    <SideBar />
+  </div>
 </template>
 
 <script>
@@ -32,7 +26,6 @@ export default {
   methods: {
     signOut () {
       localStorage.removeItem('enter')
-      localStorage.removeItem('userId')
       this.$router.push('/admin')
     }
   }
@@ -40,7 +33,4 @@ export default {
 </script>
 
 <style scoped>
-* {
-  background: grey;
-}
 </style>
