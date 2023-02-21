@@ -9,6 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: null,
+    users: [],
     todoItems: [],
     categories: []  
   },
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     },
     setUserData (state, data) {
       state.user = data
+    },
+    setAllUsers (state, data) {
+      state.users = data
     }
   },
   actions: {
@@ -36,8 +40,8 @@ export default new Vuex.Store({
       context.commit('setNewTodo', payload)
     },
     async addNewCategory(context, payload) {
-      // let id = context.state.user.map(user => user.id).join()
-      // await axios.get(`http://localhost:3000/user/${id}`, payload)
+      let id = context.state.user.map(user => user.id).join()
+      await axios.patch(`http://localhost:3000/user/${id}`, payload)
       context.commit('setNewCategory', payload)
     },
     async login (context, payload) {
@@ -48,15 +52,24 @@ export default new Vuex.Store({
       if (filterUserData.length) {
         localStorage.setItem('enter', true)
         context.commit('setUserData', filterUserData)
-        router.push('/todo')
+        if (filterUserData.find(user => user.role === 'admin')) {
+          router.push('/admin/dashboard')
+        } else {
+          router.push('/todo')
+        }
       } else {
         localStorage.setItem('enter', false)
       }
+     },
+     async getAllUsers (context) {
+      const result = await axios.get('http://localhost:3000/user')
+      context.commit('setAllUsers', result.data)
      }
   },
   getters: {
     todoItems: state => state.todoItems,
     categories: state => state.categories,
-    user: state => state.user.map(user => user)
+    user: state => state.user.map(user => user),
+    users: state => state.users
   }
 })
