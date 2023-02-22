@@ -33,6 +33,13 @@ export default new Vuex.Store({
     },
     setAllUsers (state, data) {
       state.users = data
+    },
+    setNewUser (state, data) {
+      state.users.push(data)
+    },
+    deleteSelectedUser (state, data) {
+      const index = state.users.findIndex(user => user.id === data)
+      state.users.splice(index, 1)
     }
   },
   actions: {
@@ -64,6 +71,14 @@ export default new Vuex.Store({
      async getAllUsers (context) {
       const result = await axios.get('http://localhost:3000/user')
       context.commit('setAllUsers', result.data)
+     },
+     async addNewUser (context, payload) {
+      await axios.post('http://localhost:3000/user', payload)
+      context.commit('setNewUser', payload)
+     },
+     async deleteUser (context, payload) {
+      await axios.delete(`http://localhost:3000/user/${payload.id}`)
+      context.commit('deleteSelectedUser', payload.id)
      }
   },
   getters: {

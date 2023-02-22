@@ -29,7 +29,7 @@ export default {
 
 <style scoped>
 * {
-  background: grey;
+  background: #808080;
 }
 .admin-panel {
   height: 100vh;

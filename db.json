@@ -7,11 +7,16 @@
       "role": "admin"
     },
     {
+      "id": 9,
       "login": "test",
       "password": "test",
-      "role": "user",
-      "id": 2,
-      "title": "asd"
+      "role": "admin"
+    },
+    {
+      "id": 5,
+      "login": "asdasd",
+      "password": "asdasd",
+      "role": "user"
     }
   ]
 }
