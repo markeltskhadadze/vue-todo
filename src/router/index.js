@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
 import AdminAuth from '@/components/admin/AdminAuth.vue'
 import DashboardAdmin from '@/components/admin/Dashboard.vue'
-import CategoryAdmin from '@/components/admin/CategoryAdmin.vue'
+import AllUsers from '@/components/admin/UserList.vue'
 import Profile from '@/components/admin/user/Profile.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import ListItemsPage from '@/components/ListItemsPage.vue'
@@ -36,9 +36,9 @@ const routes = [
     }
   },
   {
-    path: '/admin/category',
-    name: 'category',
-    component: CategoryAdmin,
+    path: '/admin/users',
+    name: 'users',
+    component: AllUsers,
     meta: {
       layout: 'admin-layout'
     }

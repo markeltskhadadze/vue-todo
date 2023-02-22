@@ -3,12 +3,20 @@
     {
       "login": "Mark",
       "password": "password",
-      "id": 1
+      "id": 1,
+      "role": "admin"
     },
     {
+      "id": 9,
       "login": "test",
       "password": "test",
-      "id": 2
+      "role": "admin"
+    },
+    {
+      "id": 5,
+      "login": "asdasd",
+      "password": "asdasd",
+      "role": "user"
     }
   ]
 }
