@@ -10,14 +10,8 @@ export default new Vuex.Store({
   state: {
     user: null,
     users: [],
-    posts: [],
     todoItems: [],
-    categories: [],
-    socialLinks: [
-      'Facebook',
-      'Instagram',
-      'YouTube'
-    ]
+    categories: []  
   },
   mutations: {
     setNewTodo (state, data) {
@@ -46,9 +40,6 @@ export default new Vuex.Store({
     deleteSelectedUser (state, data) {
       const index = state.users.findIndex(user => user.id === data)
       state.users.splice(index, 1)
-    },
-    setPosts (state, data) {
-      state.posts.push(data)
     }
   },
   actions: {
@@ -88,18 +79,12 @@ export default new Vuex.Store({
      async deleteUser (context, payload) {
       await axios.delete(`http://localhost:3000/user/${payload.id}`)
       context.commit('deleteSelectedUser', payload.id)
-     },
-     async getPosts (context) {
-      const result = await axios.get('http://localhost:3000/possibilities')
-      context.commit('setPosts', result.data)
      }
   },
   getters: {
     todoItems: state => state.todoItems,
     categories: state => state.categories,
     user: state => state.user.map(user => user),
-    users: state => state.users,
-    posts: state => state.posts.map(post => post).flat(),
-    socialLinks: state => state.socialLinks
+    users: state => state.users
   }
 })
