@@ -18,5 +18,17 @@
       "password": "asdasd",
       "role": "user"
     }
+  ],
+  "possibilities": [
+    {
+      "title": "Test block-1",
+      "author": "test-1",
+      "description": "test-1"
+    },
+    {
+      "title": "Test block-2",
+      "author": "test-2",
+      "description": "test-2"
+    }
   ]
 }

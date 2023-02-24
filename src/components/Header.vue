@@ -1,6 +1,14 @@
 <template>
-  <div>
-    <div class="d-flex justify-content-end me-5">
+  <div class="d-flex justify-content-around align-items-end header-home">
+    <div class="d-flex">
+      <p class="me-3">Product</p>
+      <p class="me-3">Solution</p>
+      <p class="me-3">Features</p>
+      <p class="me-3">Resourses</p>
+      <p class="me-3">Pricing</p>
+      <p class="me-3">Help</p>
+    </div>
+    <div>
       <ul>
         <li @click="loginPage" class="list-inline-item">{{ linkName }}</li>
       </ul>
@@ -28,12 +36,6 @@ export default {
         return 'LogOut'
       }
     }
-  },
-  created () {
-    this.checked = localStorage.getItem('enter')
-    if (this.checked === 'false' || this.checked === null) {
-      this.$router.push('/login')
-    }
   }
 }
 </script>
@@ -41,5 +43,8 @@ export default {
 <style scoped>
 .logo-img {
   width: 120px;
+}
+.header-home {
+  height: 60px;
 }
 </style>
