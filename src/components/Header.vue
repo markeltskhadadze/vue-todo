@@ -1,17 +1,12 @@
 <template>
   <div class="d-flex justify-content-around align-items-end header-home">
     <div class="d-flex">
-      <p class="me-3">Product</p>
-      <p class="me-3">Solution</p>
-      <p class="me-3">Features</p>
-      <p class="me-3">Resourses</p>
-      <p class="me-3">Pricing</p>
-      <p class="me-3">Help</p>
+      <p class="me-3">Home</p>
+      <p class="me-3">Guides</p>
+      <p class="me-3">About</p>
     </div>
     <div>
-      <ul>
-        <li @click="loginPage" class="list-inline-item">{{ linkName }}</li>
-      </ul>
+      <b-button @click="loginPage" variant="outline-dark">{{ linkName }}</b-button>
     </div>
   </div>
 </template>
