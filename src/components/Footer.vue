@@ -1,14 +1,22 @@
 <template>
   <div class="d-flex justify-content-around align-items-center footer">
-    <div class="social-block">
-      <h3>Social Links</h3>
-      <p v-for="(link, index) in socialLinks" :key="index">{{ link }}</p>
+    <div>
+      <h3>My log travels</h3>
     </div>
-    <div class="subscribe">
-      <h3>New in email</h3>
-      <p>Subscribe to the newsletter and receive the latest news every week:</p>
-      <input type="email">
-      <b-button>Sumbit</b-button>
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul class="d-flex justify-content-around">
+        <div>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Guides</li>
+        </div>
+        <div>
+          <li>Blogs</li>
+          <li>The team</li>
+          <li>Contact Us</li>
+        </div>
+      </ul>
     </div>
   </div>
 </template>
@@ -26,22 +34,13 @@ export default {
 
 <style scoped>
 * {
-  background: #434a74;
-  color: #fff;
+  background: #b7b7b7;
+  color: #000;
 }
 .footer {
   min-height: 200px;
 }
-.social-block p {
-  margin-bottom: 0;
-}
-input {
-  padding: 6px;
-  border: 0;
-  background: #6c757d;
-}
-
-input {
-  outline: 0 !important;
+li {
+  list-style: none;
 }
 </style>

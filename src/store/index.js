@@ -11,7 +11,47 @@ export default new Vuex.Store({
     user: null,
     users: [],
     todoItems: [],
-    categories: []  
+    categories: [],
+    reviews: [
+      {
+        id: 1,
+        userAvatar: 'img_569204.png',
+        fullName: 'test test 1',
+        reviewText: 'test comment 1'
+      },
+      {
+        id: 2,
+        userAvatar: 'img_569204.png',
+        fullName: 'test test 2',
+        reviewText: 'test comment 2'
+      },
+      {
+        id: 3,
+        userAvatar: 'img_569204.png',
+        fullName: 'test test 3',
+        reviewText: 'test comment 3'
+      }
+    ],
+    posts: [
+      {
+        id: 1,
+        img: '190827135829_mb073lo-2014-2034.jpeg',
+        title: 'Test 1',
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
+      },
+      {
+        id: 2,
+        img: '190827135829_mb073lo-2014-2034.jpeg',
+        title: 'Test 2',
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
+      },
+      {
+        id: 3,
+        img: '190827135829_mb073lo-2014-2034.jpeg',
+        title: 'Test 3',
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
+      }
+    ]
   },
   mutations: {
     setNewTodo (state, data) {
@@ -85,6 +125,8 @@ export default new Vuex.Store({
     todoItems: state => state.todoItems,
     categories: state => state.categories,
     user: state => state.user.map(user => user),
-    users: state => state.users
+    users: state => state.users,
+    posts: state => state.posts,
+    reviews: state => state.reviews
   }
 })
