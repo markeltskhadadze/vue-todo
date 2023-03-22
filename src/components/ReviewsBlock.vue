@@ -2,7 +2,7 @@
   <div>
     <h2>Reviews from our users</h2>
     <div class="d-flex justify-content-around flex-wrap">
-      <div v-for="(review, index) in reviews" :key="index" class="review">
+      <div data-aos="flip-up" v-for="(review, index) in reviews" :key="index" class="review">
         <img class="avatar" :src="review.userAvatar" alt="">
         <h3>{{ review.fullName }}</h3>
         <p>{{ review.reviewText }}</p>
@@ -25,6 +25,7 @@ export default {
 <style scoped>
 .avatar {
   width: 85px;
+  margin-bottom: 20px;
 }
 
 h2 {

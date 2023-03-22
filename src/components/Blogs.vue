@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-around flex-wrap blogs-content">
-    <div v-for="(post, index) in posts" :key="index">
+    <div data-aos="flip-left" v-for="(post, index) in posts" :key="index">
       <img :src=post.img alt="" class="blog-img">
       <hr>
       <h3>{{ post.title }}</h3>
