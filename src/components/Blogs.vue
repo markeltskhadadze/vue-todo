@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-around flex-wrap blogs-content">
     <div data-aos="flip-left" class="blog-width" v-for="(post, index) in posts" :key="index">
-      <img :src=post.img alt="" class="blog-img">
+      <img :src=post.img alt="" :class="{ 'blog-img': width > 1200, 'blog-img-modile': width < 1200 }">
       <hr>
       <h3>{{ post.title }}</h3>
       <p class="description">{{ post.description }}</p>
@@ -15,12 +15,22 @@ import {  mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Blogs-Content',
+  data: () => ({
+    width: 0
+  }),
   methods: {
     ...mapActions(['getPosts']),
+    updateWidth() {
+      this.width = window.innerWidth
+    }
   },
   computed: {
     ...mapGetters(['posts'])
   },
+  created() {
+    window.addEventListener('resize', this.updateWidth)
+    this.updateWidth()
+  }
   // async created () {
   //   await this.getPosts()
   // }
@@ -43,13 +53,15 @@ h3 {
   text-align: left;
 }
 .description {
-  max-width: 250px;
   text-align: left;
 }
 .blogs-content {
   margin: 80px 0px;
 }
 .blog-img {
+  width: 500px;
+}
+.blog-img-modile {
   width: 250px;
 }
 .blog-width {
@@ -57,6 +69,6 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: 20px;
 }
 </style>

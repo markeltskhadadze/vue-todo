@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex justify-content-around align-items-center footer">
-    <div>
+  <div class="d-flex align-items-center footer">
+    <div class="left-footer-block">
       <h3>My log travels</h3>
     </div>
     <div class="quick-links">
@@ -42,5 +42,14 @@ export default {
 }
 li {
   list-style: none;
+}
+.left-footer-block {
+  flex: 30%;
+}
+.quick-links {
+  flex: 70%;
+}
+.quick-links h3 {
+  text-align: center;
 }
 </style>
