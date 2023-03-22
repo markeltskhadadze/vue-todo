@@ -1,11 +1,12 @@
 <template>
   <div class="d-flex justify-content-around flex-wrap blogs-content">
-    <div data-aos="flip-left" v-for="(post, index) in posts" :key="index">
+    <div data-aos="flip-left" class="blog-width" v-for="(post, index) in posts" :key="index">
       <img :src=post.img alt="" class="blog-img">
       <hr>
       <h3>{{ post.title }}</h3>
       <p class="description">{{ post.description }}</p>
     </div>
+    <b-button v-if="posts.length > 6" variant="dark">Load More</b-button>
   </div>
 </template>
 
@@ -50,5 +51,12 @@ h3 {
 }
 .blog-img {
   width: 250px;
+}
+.blog-width {
+  flex: 33.333%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
 }
 </style>
