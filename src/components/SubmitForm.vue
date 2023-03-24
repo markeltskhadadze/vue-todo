@@ -27,7 +27,7 @@
         <p class="error-form-message mb-0" v-if="$v.email.$dirty && !$v.email.required">Required field</p>
         <p class="error-form-message mb-0" v-if="$v.email.$dirty && !$v.email.email">Enter email</p>
         <textarea name="" placeholder="Write somthing here..." id="" cols="30" rows="10"></textarea>
-        <b-button variant="dark">Submit</b-button>
+        <b-button @click="test" variant="dark">Submit</b-button>
       </div>
     </div>
   </div>
@@ -35,6 +35,7 @@
 
 <script>
 import { required, minLength, email } from 'vuelidate/lib/validators'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'SubmitForm',
@@ -59,6 +60,14 @@ export default {
     lastName: ''
   }),
   methods: {
+    ...mapActions(['sendReview']),
+    async test() {
+      await this.sendReview({
+        id: Math.random(),
+        fullName: 'fullName',
+        reviewText: 'test review'
+      })
+    },
     updateWidth() {
       this.width = window.innerWidth
     }
