@@ -119,6 +119,14 @@ export default new Vuex.Store({
      async deleteUser (context, payload) {
       await axios.delete(`http://localhost:3000/user/${payload.id}`)
       context.commit('deleteSelectedUser', payload.id)
+     },
+     async getReviews () {
+      const result = await axios.get('http://localhost:3000/api/reviews')
+      console.log(result)
+     },
+     async sendReview () {
+      const result = await axios.post('http://localhost:3000/api/reviews')
+      console.log(result)
      }
   },
   getters: {

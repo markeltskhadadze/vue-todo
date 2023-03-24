@@ -19,7 +19,7 @@ export default {
     width: 0
   }),
   methods: {
-    ...mapActions(['getPosts']),
+    ...mapActions(['getPosts', 'getReviews']),
     updateWidth() {
       this.width = window.innerWidth
     }
@@ -27,9 +27,10 @@ export default {
   computed: {
     ...mapGetters(['posts'])
   },
-  created() {
+  async created() {
     window.addEventListener('resize', this.updateWidth)
     this.updateWidth()
+    await this.getReviews()
   }
   // async created () {
   //   await this.getPosts()
