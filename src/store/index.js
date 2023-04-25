@@ -125,7 +125,7 @@ export default new Vuex.Store({
       console.log(result)
      },
      async sendReview () {
-      const result = await axios.post('http://localhost:3000/api/reviews')
+      const result = await axios.post('http://localhost:3000/api/reviews/add')
       console.log(result)
      }
   },

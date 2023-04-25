@@ -63,7 +63,7 @@ export default {
     ...mapActions(['sendReview']),
     async test() {
       await this.sendReview({
-        id: Math.random(),
+        // id: Math.random(),
         fullName: 'fullName',
         reviewText: 'test review'
       })
