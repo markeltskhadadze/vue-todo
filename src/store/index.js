@@ -109,23 +109,23 @@ export default new Vuex.Store({
       }
      },
      async getAllUsers (context) {
-      const result = await axios.get('http://localhost:3000/user')
+      const result = await axios.get('https://spectacular-tiramisu-4b9d72.netlify.app/user')
       context.commit('setAllUsers', result.data)
      },
      async addNewUser (context, payload) {
-      await axios.post('http://localhost:3000/user', payload)
+      await axios.post('https://spectacular-tiramisu-4b9d72.netlify.app/user', payload)
       context.commit('setNewUser', payload)
      },
      async deleteUser (context, payload) {
-      await axios.delete(`http://localhost:3000/user/${payload.id}`)
+      await axios.delete(`https://spectacular-tiramisu-4b9d72.netlify.app/user/${payload.id}`)
       context.commit('deleteSelectedUser', payload.id)
      },
      async getReviews () {
-      const result = await axios.get('http://localhost:3000/api/reviews')
+      const result = await axios.get('https://spectacular-tiramisu-4b9d72.netlify.app/api/reviews')
       console.log(result)
      },
      async sendReview () {
-      const result = await axios.post('http://localhost:3000/api/reviews/add')
+      const result = await axios.post('https://spectacular-tiramisu-4b9d72.netlify.app/api/reviews/add')
       console.log(result)
      }
   },
