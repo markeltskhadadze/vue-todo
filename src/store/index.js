@@ -121,11 +121,15 @@ export default new Vuex.Store({
       context.commit('deleteSelectedUser', payload.id)
      },
      async getReviews () {
-      const result = await axios.get('https://tough-goat-fez.cyclic.app/api/reviews')
-      console.log(result)
+      const result = await axios.get('http://localhost:3000/api/reviews', {
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+      console.log(result.data)
      },
      async sendReview () {
-      const result = await axios.post('https://tough-goat-fez.cyclic.app/api/reviews/add')
+      const result = await axios.post('http://localhost:3000/api/reviews/add')
       console.log(result)
      }
   },
