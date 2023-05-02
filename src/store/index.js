@@ -109,23 +109,23 @@ export default new Vuex.Store({
       }
      },
      async getAllUsers (context) {
-      const result = await axios.get('https://spectacular-tiramisu-4b9d72.netlify.app/user')
+      const result = await axios.get('https://tough-goat-fez.cyclic.app/user')
       context.commit('setAllUsers', result.data)
      },
      async addNewUser (context, payload) {
-      await axios.post('https://spectacular-tiramisu-4b9d72.netlify.app/user', payload)
+      await axios.post('https://tough-goat-fez.cyclic.app/user', payload)
       context.commit('setNewUser', payload)
      },
      async deleteUser (context, payload) {
-      await axios.delete(`https://spectacular-tiramisu-4b9d72.netlify.app/user/${payload.id}`)
+      await axios.delete(`https://tough-goat-fez.cyclic.app/user/${payload.id}`)
       context.commit('deleteSelectedUser', payload.id)
      },
      async getReviews () {
-      const result = await axios.get('https://spectacular-tiramisu-4b9d72.netlify.app/api/reviews')
+      const result = await axios.get('https://tough-goat-fez.cyclic.app/api/reviews')
       console.log(result)
      },
      async sendReview () {
-      const result = await axios.post('https://spectacular-tiramisu-4b9d72.netlify.app/api/reviews/add')
+      const result = await axios.post('https://tough-goat-fez.cyclic.app/api/reviews/add')
       console.log(result)
      }
   },
