@@ -74,21 +74,20 @@ export default {
     bodyTextVariant: 'dark',
     footerBgVariant: 'dark',
     footerTextVariant: 'dark',
-    fields: ['id', 'login', 'role', 'actions']
+    fields: ['_id', 'name', 'role', 'actions']
   }),
   methods: {
     ...mapActions(['getAllUsers', 'addNewUser', 'deleteUser']),
     async addUser () {
       await this.addNewUser ({
-        id: Math.floor(Math.random() * 11),
-        login: this.name,
+        name: this.name,
         password: this.password,
         role: this.role
       })
     },
     async deleteThisUser (user) {
       await this.deleteUser ({
-        id: user.id
+        _id: user._id
       })
     }
   },

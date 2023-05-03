@@ -23,7 +23,7 @@
         <input type="text"
           v-model.trim="$v.email.$model" placeholder="Email Subject *"
           required
-          :class="$v.firstName.$error ? 'is-invalid' : ''">
+          :class="$v.email.$error ? 'is-invalid' : ''">
         <p class="error-form-message mb-0" v-if="$v.email.$dirty && !$v.email.required">Required field</p>
         <p class="error-form-message mb-0" v-if="$v.email.$dirty && !$v.email.email">Enter email</p>
         <textarea name="" placeholder="Write somthing here..." id="" cols="30" rows="10"></textarea>
@@ -63,7 +63,6 @@ export default {
     ...mapActions(['sendReview']),
     async test() {
       await this.sendReview({
-        // id: Math.random(),
         fullName: 'fullName',
         reviewText: 'test review'
       })

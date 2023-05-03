@@ -5,14 +5,14 @@
       <div class="user-table" v-for="(userData, index) in user" :key="index">
         <div v-if="!edit">
           <p @click="editUser" class="text-end mb-0 edit">Edit</p>
-          <p>id: {{ userData.id }}</p>
-          <p>Name: {{ userData.login }}</p>
+          <p>id: {{ userData._id }}</p>
+          <p>Name: {{ userData.name }}</p>
           <p>Password: *********</p>
         </div>
         <div v-if="edit">
           <p @click="editUser" class="text-end mb-0 edit">Close</p>
-          <input type="text" :placeholder=userData.id>
-          <input type="text" :placeholder=userData.login>
+          <input type="text" :placeholder=userData._id>
+          <input type="text" :placeholder=userData.name>
           <input type="text" placeholder="*********">
           <b-button>Edit</b-button>
         </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ProfileUser',
@@ -35,7 +35,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['user'])
+    ...mapGetters(['user'])
   }
 }
 </script>
