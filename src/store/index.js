@@ -79,11 +79,11 @@ export default new Vuex.Store({
     },
     async addNewCategory(context, payload) {
       let id = context.state.user.map(user => user.id).join()
-      await axios.patch(`http://localhost:3000/api/users/${id}`, payload)
+      await axios.patch(`https://node-and-mongo-project.herokuapp.com/api/users/${id}`, payload)
       context.commit('setNewCategory', payload)
     },
     async login (context, payload) {
-      const result = await axios.get('http://localhost:3000/api/users', payload)
+      const result = await axios.get('https://node-and-mongo-project.herokuapp.com/api/users', payload)
       const filterUserData = result.data.filter(user => 
         user.name === payload.login &&
         user.password === payload.password)
@@ -100,27 +100,27 @@ export default new Vuex.Store({
       }
      },
      async getAllUsers (context) {
-      const result = await axios.get('http://localhost:3000/api/users')
+      const result = await axios.get('https://node-and-mongo-project.herokuapp.com/api/users')
       context.commit('setAllUsers', result.data)
      },
      async addNewUser (context, payload) {
-      await axios.post('http://localhost:3000/api/add-user', payload)
+      await axios.post('https://node-and-mongo-project.herokuapp.com/api/add-user', payload)
       context.commit('setNewUser', payload)
      },
      async deleteUser (context, payload) {
-      await axios.post('http://localhost:3000/api/remove', payload)
+      await axios.post('https://node-and-mongo-project.herokuapp.com/api/remove', payload)
       context.commit('deleteSelectedUser', payload._id)
      },
      async getReviews (context) {
-      const result = await axios.get('http://localhost:3000/api/reviews')
+      const result = await axios.get('https://node-and-mongo-project.herokuapp.com/api/reviews')
       context.commit('setReviews', result.data)
      },
      async getPosts (context) {
-      const result = await axios.get('http://localhost:3000/api/posts')
+      const result = await axios.get('https://node-and-mongo-project.herokuapp.com/api/posts')
       context.commit('setPosts', result.data)
      },
      async sendReview (context, payload) {
-      await axios.post('http://localhost:3000/api/add-reviews', payload)
+      await axios.post('https://node-and-mongo-project.herokuapp.com/api/add-reviews', payload)
       context.commit('setNewReviews', payload)
      }
   },
