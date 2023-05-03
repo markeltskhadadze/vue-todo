@@ -8,50 +8,32 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: null,
+    user: [],
     users: [],
     todoItems: [],
     categories: [],
-    reviews: [
-      {
-        id: 1,
-        userAvatar: 'img_569204.png',
-        fullName: 'test test 1',
-        reviewText: 'test comment 1'
-      },
-      {
-        id: 2,
-        userAvatar: 'img_569204.png',
-        fullName: 'test test 2',
-        reviewText: 'test comment 2'
-      },
-      {
-        id: 3,
-        userAvatar: 'img_569204.png',
-        fullName: 'test test 3',
-        reviewText: 'test comment 3'
-      }
-    ],
-    posts: [
-      {
-        id: 1,
-        img: '190827135829_mb073lo-2014-2034.jpeg',
-        title: 'Test 1',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
-      },
-      {
-        id: 2,
-        img: '190827135829_mb073lo-2014-2034.jpeg',
-        title: 'Test 2',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
-      },
-      {
-        id: 3,
-        img: '190827135829_mb073lo-2014-2034.jpeg',
-        title: 'Test 3',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
-      }
-    ]
+    reviews: [],
+    posts: []
+    // posts: [
+    //   {
+    //     id: 1,
+    //     img: '190827135829_mb073lo-2014-2034.jpeg',
+    //     title: 'Test 1',
+    //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
+    //   },
+    //   {
+    //     id: 2,
+    //     img: '190827135829_mb073lo-2014-2034.jpeg',
+    //     title: 'Test 2',
+    //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
+    //   },
+    //   {
+    //     id: 3,
+    //     img: '190827135829_mb073lo-2014-2034.jpeg',
+    //     title: 'Test 3',
+    //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae eos obcaecati illo incidunt."
+    //   }
+    // ]
   },
   mutations: {
     setNewTodo (state, data) {
@@ -78,8 +60,17 @@ export default new Vuex.Store({
       state.users.push(data)
     },
     deleteSelectedUser (state, data) {
-      const index = state.users.findIndex(user => user.id === data)
+      const index = state.users.findIndex(user => user._id === data)
       state.users.splice(index, 1)
+    },
+    setReviews (state, data) {
+      state.reviews = data
+    },
+    setPosts (state, data) {
+      state.posts = data
+    },
+    setNewReviews (state, data) {
+      state.reviews = [...state.reviews, data]
     }
   },
   actions: {
@@ -88,17 +79,17 @@ export default new Vuex.Store({
     },
     async addNewCategory(context, payload) {
       let id = context.state.user.map(user => user.id).join()
-      await axios.patch(`http://localhost:3000/user/${id}`, payload)
+      await axios.patch(`http://localhost:3000/api/users/${id}`, payload)
       context.commit('setNewCategory', payload)
     },
     async login (context, payload) {
-      const result = await axios.get('http://localhost:3000/user', payload)
+      const result = await axios.get('http://localhost:3000/api/users', payload)
       const filterUserData = result.data.filter(user => 
-        user.login === payload.login &&
+        user.name === payload.login &&
         user.password === payload.password)
+      context.commit('setUserData', filterUserData)  
       if (filterUserData.length) {
         localStorage.setItem('enter', true)
-        context.commit('setUserData', filterUserData)
         if (filterUserData.find(user => user.role === 'admin')) {
           router.push('/admin/dashboard')
         } else {
@@ -109,24 +100,28 @@ export default new Vuex.Store({
       }
      },
      async getAllUsers (context) {
-      const result = await axios.get('https://tough-goat-fez.cyclic.app/user')
+      const result = await axios.get('http://localhost:3000/api/users')
       context.commit('setAllUsers', result.data)
      },
      async addNewUser (context, payload) {
-      await axios.post('https://tough-goat-fez.cyclic.app/user', payload)
+      await axios.post('http://localhost:3000/api/add-user', payload)
       context.commit('setNewUser', payload)
      },
      async deleteUser (context, payload) {
-      await axios.delete(`https://tough-goat-fez.cyclic.app/user/${payload.id}`)
-      context.commit('deleteSelectedUser', payload.id)
+      await axios.post('http://localhost:3000/api/remove', payload)
+      context.commit('deleteSelectedUser', payload._id)
      },
-     async getReviews () {
-      const result = await axios.get('https://tough-goat-fez.cyclic.app/api/reviews')
-      console.log(result)
+     async getReviews (context) {
+      const result = await axios.get('http://localhost:3000/api/reviews')
+      context.commit('setReviews', result.data)
      },
-     async sendReview () {
-      const result = await axios.post('https://tough-goat-fez.cyclic.app/api/reviews/add')
-      console.log(result)
+     async getPosts (context) {
+      const result = await axios.get('http://localhost:3000/api/posts')
+      context.commit('setPosts', result.data)
+     },
+     async sendReview (context, payload) {
+      await axios.post('http://localhost:3000/api/add-reviews', payload)
+      context.commit('setNewReviews', payload)
      }
   },
   getters: {

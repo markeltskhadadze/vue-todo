@@ -30,11 +30,8 @@ export default {
   async created() {
     window.addEventListener('resize', this.updateWidth)
     this.updateWidth()
-    await this.getReviews()
+    await this.getPosts()
   }
-  // async created () {
-  //   await this.getPosts()
-  // }
 }
 </script>
 

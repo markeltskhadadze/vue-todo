@@ -12,13 +12,19 @@
 </template>
 
 <script>
-import {  mapGetters } from 'vuex'
+import {  mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'ReviewsBlock',
+  methods: {
+    ...mapActions(['getReviews']),
+  },
   computed: {
     ...mapGetters(['reviews'])
   },
+  async created() {
+    await this.getReviews()
+  }
 }
 </script>
 
