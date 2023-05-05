@@ -17,6 +17,7 @@
 <script>
 import SideBar from '../admin/SideBar.vue'
 import HeaderAdmin from '../admin/HeaderAdmin.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'AdminLayout',
@@ -24,6 +25,17 @@ export default {
     SideBar,
     HeaderAdmin
   },
+  computed: {
+    ...mapGetters(['isAuthenticated'])
+  },
+  async created () {
+    if (localStorage.getItem('token')) {
+      this.$store.commit('setToken', localStorage.getItem('token'))
+    }
+    if (!this.isAuthenticated) {
+      return this.$router.push('/admin/')
+    }
+  }
 }
 </script>
 

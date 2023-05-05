@@ -1,22 +1,34 @@
 <template>
-  <div class="text-start">
-    <h3>Navigation</h3>
-      <ul class="nav-list">
-        <li class="list-inline-item">
-          <span class="overlay"></span>
-          <router-link to="/admin/dashboard" class="nav-list-link">
-            <span class="icon"></span>
-            <span class="title">Dashboard</span>
-          </router-link>
-        </li>
-        <li class="list-inline-item">
-          <span class="overlay"></span>
-          <router-link to="/admin/users" class="nav-list-link">
-            <span class="icon"></span>
-            <span class="title">Users</span>
-          </router-link>
-        </li>
-      </ul>
+  <div>
+    <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
+    <b-sidebar id="sidebar-1" title="Sidebar" bg-variant="dark" text-variant="light" shadow>
+      <div class="text-start ms-5">
+        <h3>Navigation</h3>
+          <ul class="nav-list">
+            <li class="list-inline-item">
+              <span class="overlay"></span>
+              <router-link to="/admin/dashboard" class="nav-list-link">
+                <span class="icon"></span>
+                <span class="title">Dashboard</span>
+              </router-link>
+            </li>
+            <li class="list-inline-item">
+              <span class="overlay"></span>
+              <router-link to="/admin/users" class="nav-list-link">
+                <span class="icon"></span>
+                <span class="title">Users</span>
+              </router-link>
+            </li>
+            <li class="list-inline-item">
+              <span class="overlay"></span>
+              <router-link to="/admin/add-blog" class="nav-list-link">
+                <span class="icon"></span>
+                <span class="title">Add Blog</span>
+              </router-link>
+            </li>
+          </ul>
+      </div>
+    </b-sidebar>
   </div>
 </template>
 
@@ -31,5 +43,9 @@ export default {
 .nav-list {
   display: flex;
   flex-direction: column;
+  font-size: 20px;
+}
+.nav-list-link {
+  color: #ffffff;
 }
 </style>
