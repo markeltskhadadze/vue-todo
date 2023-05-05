@@ -16,7 +16,7 @@ export default {
   name: 'HeaderAdmin',
   methods: {
     signOut () {
-      localStorage.removeItem('enter')
+      localStorage.removeItem('token')
       this.$router.push('/admin')
     }
   }

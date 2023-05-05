@@ -6,16 +6,7 @@
 
 <script>
 export default {
-  name: 'DashboardAdmin',
-  data: () => ({
-    checked: null
-  }),
-  created () {
-    this.checked = localStorage.getItem('enter')
-    if (this.checked === 'false' || this.checked === null) {
-      this.$router.push('/admin')
-    }
-  }
+  name: 'DashboardAdmin'
 }
 </script>
 

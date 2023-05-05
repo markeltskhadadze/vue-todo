@@ -40,7 +40,7 @@ export default {
     async submitLoginData () {
       if (this.name && this.password) {
         await this.login ({
-          login: this.name,
+          name: this.name,
           password: this.password
         })
       }
