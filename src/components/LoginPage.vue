@@ -27,7 +27,7 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'LoginPage',
@@ -35,17 +35,17 @@ export default {
     name: '',
     password: ''
   }),
-  // methods: {
-  //   ...mapActions(['login']),
-  //   async submitLoginData () {
-  //     if (this.name && this.password) {
-  //       await this.login ({
-  //         name: this.name,
-  //         password: this.password
-  //       })
-  //     }
-  //   }
-  // }
+  methods: {
+    ...mapActions(['login']),
+    async submitLoginData () {
+      if (this.name && this.password) {
+        await this.login ({
+          name: this.name,
+          password: this.password
+        })
+      }
+    }
+  }
 }
 
 </script>
