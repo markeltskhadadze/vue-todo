@@ -74,6 +74,9 @@ export default new Vuex.Store({
     },
     setNewPost (state, data) {
       state.posts = [...state.posts, data]
+    },
+    setUpdateUserData (state, data) {
+      state.profile = data
     }
   },
   actions: {
@@ -126,7 +129,12 @@ export default new Vuex.Store({
     async submitNewPost (context, payload) {
       await axios.post('https://node-and-mongo-project.herokuapp.com/api/add-post', payload)
       context.commit('setNewPost', payload)
-    }
+    },
+    async updateUser (context, payload) {
+      console.log(payload)
+      await axios.post(`https://node-and-mongo-project.herokuapp.com/api/${payload._id}`, payload)
+      context.commit('setProfile', payload)
+    },
   },
   getters: {
     isAuthenticated: state => state.isAuthenticated,
