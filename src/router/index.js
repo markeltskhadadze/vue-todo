@@ -4,7 +4,7 @@ import HomePage from '@/components/HomePage.vue'
 import AdminAuth from '@/components/admin/AdminAuth.vue'
 import DashboardAdmin from '@/components/admin/Dashboard.vue'
 import AllUsers from '@/components/admin/UserList.vue'
-import AddBlog from '@/components/admin/AddBlog.vue'
+import AllPosts from '@/components/admin/AllPosts.vue'
 import Profile from '@/components/admin/user/Profile.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import ListItemsPage from '@/components/ListItemsPage.vue'
@@ -45,9 +45,9 @@ const routes = [
     }
   },
   {
-    path: '/admin/add-blog',
-    name: 'blog',
-    component: AddBlog,
+    path: '/admin/all-posts',
+    name: 'posts',
+    component: AllPosts,
     meta: {
       layout: 'admin-layout'
     }

@@ -21,9 +21,9 @@
             </li>
             <li class="list-inline-item">
               <span class="overlay"></span>
-              <router-link to="/admin/add-blog" class="nav-list-link">
+              <router-link to="/admin/all-posts" class="nav-list-link">
                 <span class="icon"></span>
-                <span class="title">Add Blog</span>
+                <span class="title">All posts</span>
               </router-link>
             </li>
           </ul>
