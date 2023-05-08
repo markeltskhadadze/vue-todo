@@ -11,6 +11,7 @@ export default new Vuex.Store({
     token: [],
     isAuthenticated: false,
     user: [],
+    profile: [],
     users: [],
     todoItems: [],
     categories: [],
@@ -49,8 +50,11 @@ export default new Vuex.Store({
     setUserData (state, data) {
       state.user = data
     },
+    setProfile (state, data) {
+      state.profile = data
+    },
     setAllUsers (state, data) {
-      state.users = data
+      state.profile = data
     },
     setNewUser (state, data) {
       state.users.push(data)
@@ -95,6 +99,10 @@ export default new Vuex.Store({
       const result = await axios.get('https://node-and-mongo-project.herokuapp.com/api/users')
       context.commit('setAllUsers', result.data)
     },
+    async getProfile (context) {
+      const result = await axios.get('https://node-and-mongo-project.herokuapp.com/api/profile')
+      context.commit('setProfile', result.data)
+    },
     async addNewUser (context, payload) {
       await axios.post('https://node-and-mongo-project.herokuapp.com/api/add-user', payload)
       context.commit('setNewUser', payload)
@@ -125,6 +133,7 @@ export default new Vuex.Store({
     todoItems: state => state.todoItems,
     categories: state => state.categories,
     user: state => state.user.map(user => user),
+    profile: state => state.profile,
     users: state => state.users,
     posts: state => state.posts,
     reviews: state => state.reviews

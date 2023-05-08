@@ -2,17 +2,17 @@
   <div>
     <h1>Profile</h1>
     <div class="d-flex align-items-center flex-column">
-      <div class="user-table" v-for="(userData, index) in user" :key="index">
+      <div class="user-table">
         <div v-if="!edit">
           <p @click="editUser" class="text-end mb-0 edit">Edit</p>
-          <p>id: {{ userData._id }}</p>
-          <p>Name: {{ userData.name }}</p>
+          <p>id: {{ profile._id }}</p>
+          <p>Name: {{ profile.name }}</p>
           <p>Password: *********</p>
         </div>
         <div v-if="edit">
           <p @click="editUser" class="text-end mb-0 edit">Close</p>
-          <input type="text" :placeholder=userData._id>
-          <input type="text" :placeholder=userData.name>
+          <input type="text" :placeholder=profile._id>
+          <input type="text" :placeholder=profile.name>
           <input type="text" placeholder="*********">
           <b-button>Edit</b-button>
         </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'ProfileUser',
@@ -30,12 +30,17 @@ export default {
     edit: false
   }),
   methods: {
+    ...mapActions(['getProfile']),
     editUser () {
       this.edit ? this.edit = false : this.edit = true
     }
   },
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(['profile'])
+  },
+  created () {
+    this.getProfile()
+    this.profile
   }
 }
 </script>
