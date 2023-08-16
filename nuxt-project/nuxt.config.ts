@@ -15,5 +15,10 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+  buildDir: 'dist',
+  target: 'static',
+  generate: {
+    fallback: true
+  }
 })
