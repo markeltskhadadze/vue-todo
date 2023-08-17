@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
-import { headers } from '../index'
+import { headers } from '../mixins/headers'
 import { type TProfile } from '../types'
 
 export const profile = defineStore('profile', () => {
