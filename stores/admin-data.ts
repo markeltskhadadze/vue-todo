@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import { type TNewReview } from "../types"
-import { headers } from "../types"
+import { headers } from '../mixins/headers'
 import { homePageData } from './home-page-data'
 
 export const adminData = defineStore('adminData', () => {

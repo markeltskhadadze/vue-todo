@@ -3,14 +3,14 @@ import {type PropType, computed } from 'vue'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { type TService } from '../../types'
-// import { countSliderMixin } from '../../mixins/count-slider-mixin'
+import { countSliderMixin } from '../../mixins/count-slider-mixin'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 
 const modules = [Navigation, Pagination, Scrollbar, A11y]
-// const { getCountSlider } = countSliderMixin.setup()
+const { getCountSlider } = countSliderMixin.setup()
 
 const props = defineProps({
   services: {
@@ -28,7 +28,7 @@ const getIcon = computed(() => {
   <div class="service-block">
     <swiper
         :modules="modules"
-        :slides-per-view="2"
+        :slides-per-view="getCountSlider"
         navigation
         :pagination="{ clickable: true }"
     >
