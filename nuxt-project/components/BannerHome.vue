@@ -30,7 +30,7 @@
                     'image-banner': width > 1200,
                     'image-banner-modile': width < 1200
                   }"
-         src="../../public/seo-banner.png" alt=""
+         src="../public/seo-banner.png" alt=""
     />
   </div>
 </template>
