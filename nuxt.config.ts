@@ -14,12 +14,5 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  css: ['~/assets/css/main.css'],
-  buildDir: 'dist',
-  generate: {
-    routes: [
-      '/',
-      '/tariffs'
-    ]
-  }
+  css: ['~/assets/css/main.css']
 })
