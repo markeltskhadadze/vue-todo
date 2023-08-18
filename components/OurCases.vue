@@ -71,7 +71,7 @@
     padding: 0 50px;
   }
   .cases-container {
-    max-width: 400px;
+    max-width: 550px;
     margin: 30px auto;
     display: flex;
     flex-direction: column;

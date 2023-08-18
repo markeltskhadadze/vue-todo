@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import BannerForService from "./BannerForService.vue"
+import BannerForService from "../components/service-part/services-pages/BannerForService.vue"
 import { ref, type Ref } from 'vue'
 
-let mode: Ref<string> = ref('seoPage')
+let mode: Ref<string> = ref('siteOptimization')
 </script>
 
 <template>

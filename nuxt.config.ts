@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: true},
   modules: ['@pinia/nuxt', 'nuxt-simple-sitemap'],
+  // sitemap rules
+  routeRules: {
+    '/admin/**': { index: false },
+    '/login': { index: false }
+  },
   pinia: {
     autoImports: [
       'defineStore',

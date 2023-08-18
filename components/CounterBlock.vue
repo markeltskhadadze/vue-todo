@@ -1,24 +1,37 @@
 <script setup lang="ts">
-import {ref, onMounted, type Ref, computed} from 'vue'
+  import {ref, onMounted, type Ref, computed} from 'vue'
 
-let clientValue: Ref<number> = ref(2)
+  let clientValue: Ref<number> = ref(2)
+  let shouldStartCounter: Ref<boolean> = ref(false)
 
-function startCounter() {
-  const intervalId = setInterval(() => {
-    clientValue.value++
-    if (clientValue.value >= 16) {
-      clearInterval(intervalId)
+  function startCounter() {
+    const intervalId = setInterval(() => {
+      clientValue.value++
+      if (clientValue.value >= 16) {
+        clearInterval(intervalId)
+      }
+    }, 60)
+  }
+  function checkScroll() {
+    const el = document.querySelector('.counter-text')
+    if (el) {
+      const rect = el.getBoundingClientRect()
+      if (rect.top < window.innerHeight && !shouldStartCounter.value) {
+        shouldStartCounter.value = true
+        startCounter()
+      }
     }
-  }, 40)
-}
+  }
 
-const getClientValue = computed(() => {
-  return clientValue.value
-})
+  const getClientValue = computed(() => {
+    return clientValue.value
+  })
 
-onMounted(() => {
-  startCounter()
-})
+  onMounted(() => {
+    if (process.client) {
+      window.addEventListener('scroll', checkScroll)
+    }
+  })
 </script>
 
 <template>
@@ -39,24 +52,24 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.bg {
-  color: #ffffff;
-  background-color: #4c4ff9;
-  display: flex;
-  min-height: 350px;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.counter-value {
-  font-size: 96px;
-}
-.counter-text {
-  font-size: 20px;
-}
-@media (max-width: 800px) {
   .bg {
-    flex-direction: column;
+    color: #ffffff;
+    background-color: #4c4ff9;
+    display: flex;
+    min-height: 350px;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
-}
+  .counter-value {
+    font-size: 96px;
+  }
+  .counter-text {
+    font-size: 20px;
+  }
+  @media (max-width: 800px) {
+    .bg {
+      flex-direction: column;
+    }
+  }
 </style>

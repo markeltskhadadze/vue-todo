@@ -10,6 +10,7 @@ export type TPosts = {
 export type TService = {
     title: string;
     description: string;
+    link: string;
 }
 
 type TAuthor = {

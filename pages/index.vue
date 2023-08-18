@@ -16,8 +16,8 @@ import OurCases from '../components/OurCases.vue'
   <OurServices />
   <SuccessFuture />
   <CounterBlock />
-  <AnalyticsBock />
+<!--  <AnalyticsBock />-->
   <OurCases />
-  <WhyWe />
+<!--  <WhyWe />-->
   <ReviewsBlock />
 </template>

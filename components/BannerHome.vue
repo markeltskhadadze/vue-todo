@@ -10,7 +10,7 @@
   onMounted (() => {
     if (process.client) {
       window.addEventListener('resize', updateWidth)
-      width.value = window.innerWidth // set initial width
+      width.value = window.innerWidth
     }
   })
 </script>
@@ -22,7 +22,9 @@
       <p>Какой то текст</p>
       <div class="flex justify-center">
         <button class="banner-button">Заказть продвижение</button>
-        <button class="banner-button">Тарифы</button>
+        <NuxtLink to="/tariffs" class="banner-button">
+          Тарифы
+        </NuxtLink>
       </div>
     </div>
     <img data-aos="zoom-in-up"
