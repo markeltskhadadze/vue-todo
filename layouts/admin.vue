@@ -5,6 +5,7 @@ import { auth } from '../stores/auth'
 // import SideBar from '../components'
 import nuxtStorage from 'nuxt-storage'
 
+
 const authData = auth()
 
 onMounted(() => {
@@ -12,7 +13,8 @@ onMounted(() => {
     authData.setToken(nuxtStorage.localStorage.getItem('token'))
   }
   if (!authData.isAuthenticated) {
-    // return router.push('/admin')
+    const router = useRouter()
+    router.push({ name: 'about' })
   }
 })
 </script>
