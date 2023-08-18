@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { computed, ref, type Ref, type PropType } from "vue"
-import { sendForm } from '../../../stores/send-form'
+  import { computed, ref, type Ref, type PropType } from "vue"
+  import { sendForm } from '../../../stores/send-form'
 
-const props = defineProps({
-  mode: {
-    type: String as PropType<string>,
-    required: true
+  const props = defineProps({
+    mode: {
+      type: String as PropType<string>,
+      required: true
+    }
+  })
+
+  const formData = sendForm()
+  let phone: Ref<string> = ref('')
+  async function sendPhone () {
+    await formData.sendPhoneNumber(phone.value)
   }
-})
 
-const formData = sendForm()
-let phone: Ref<string> = ref('')
-async function sendPhone () {
-  await formData.sendPhoneNumber(phone.value)
-}
-
-const getIcon = computed(() => {
-  return '/'
-})
+  const getIcon = computed(() => {
+    return '/'
+  })
 </script>
 
 <template>

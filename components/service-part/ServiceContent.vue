@@ -42,7 +42,9 @@
           >
             <img class="avatar" :src="getIcon + 'seo2.png'" alt="">
             <div class="content-block">
-              <h3>{{ service.title }}</h3>
+              <NuxtLink :to="'/'+ service.link">
+                <h3>{{ service.title }}</h3>
+              </NuxtLink>
               <p>{{ service.description }}</p>
             </div>
           </div>
