@@ -36,7 +36,7 @@
             <div class="header-block">
               <p>{{ siteInfo.project_name }}</p>
               <p>Часто та посещения за 12 месяцев</p>
-              <p>{{ siteInfo.project_link }}</p>
+              <a :href="siteInfo.project_link">{{ siteInfo.project_link }}</a>
             </div>
             <div class="chart-container">
               <ChartBar :selectedDataBar="siteInfo.chart_data" />

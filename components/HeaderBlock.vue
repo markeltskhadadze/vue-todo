@@ -1,16 +1,17 @@
 <script setup lang='ts'>
+  import LangSwitcher from "./LangSwitcher.vue"
 </script>
 
 <template>
   <div class="flex justify-evenly items-center header-home">
     <div>
       <NuxtLink to="/">
-        Главная
+        {{ $t("main_page") }}
       </NuxtLink>
     </div>
     <div class="flex">
       <NuxtLink to="/tariffs" class="header-link me-3">
-        Тарифы
+        {{ $t("tariffs") }}
       </NuxtLink>
       <p id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class=" header-link me-3" type="button">Услуги
         <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -26,6 +27,7 @@
           </li>
         </ul>
       </div>
+      <LangSwitcher />
     </div>
   </div>
 </template>

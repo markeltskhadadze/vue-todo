@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import ServiceContent from './service-part/ServiceContent.vue'
-import { reactive, onMounted, toRaw } from 'vue'
-import { homePageData } from '../stores/home-page-data'
-import { type TService } from '../types'
+  import ServiceContent from './service-part/ServiceContent.vue'
+  import { reactive, onMounted, toRaw } from 'vue'
+  import { homePageData } from '../stores/home-page-data'
+  import { type TService } from '../types'
 
-const homeData = homePageData()
+  const homeData = homePageData()
 
-const services: TService[] = reactive(toRaw(homeData.services))
+  const services: TService[] = reactive(toRaw(homeData.services))
 
-onMounted (async () => {
-  await homeData.getServices()
-})
+  onMounted (async () => {
+    await homeData.getServices()
+  })
 </script>
 
 <template>
   <div class="logs-block">
-    <h2>Мы предоставляем лучшие услуги</h2>
+    <h2>{{ $t("services.title") }}</h2>
     <ServiceContent :services="services" />
   </div>
 </template>

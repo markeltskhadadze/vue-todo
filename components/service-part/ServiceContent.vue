@@ -11,6 +11,7 @@
 
   const modules = [Navigation, Pagination, Scrollbar, A11y]
   const { getCountSlider } = countSliderMixin.setup()
+  const localePath = useLocalePath()
 
   const props = defineProps({
     services: {
@@ -42,7 +43,7 @@
           >
             <img class="avatar" :src="getIcon + 'seo2.png'" alt="">
             <div class="content-block">
-              <NuxtLink :to="'/'+ service.link">
+              <NuxtLink :to="localePath('/' + service.link)">
                 <h3>{{ service.title }}</h3>
               </NuxtLink>
               <p>{{ service.description }}</p>

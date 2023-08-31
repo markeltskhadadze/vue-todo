@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Header from '../components/HeaderBlock.vue'
+  import Header from '../components/HeaderBlock.vue'
 </script>
 
 <template>

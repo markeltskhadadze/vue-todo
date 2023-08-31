@@ -19,21 +19,21 @@ export const homePageData = defineStore('homePageData', () => {
     async function getReviews () {
         const result = await axios.get<TReviews[]>('https://node-and-mongo-project.herokuapp.com/api/reviews')
 
-        reviews.push(...result.data)
+        if(!reviews.length) reviews.push(...result.data)
         return reviews
     }
 
     async function getServices () {
         const result = await axios.get<TService[]>('https://node-and-mongo-project.herokuapp.com/api/services')
 
-        services.push(...result.data)
+        if (!services.length) services.push(...result.data)
         return services
     }
 
     async function getProjectInfo () {
         const result = await axios.get<TProjectInfo[]>('https://node-and-mongo-project.herokuapp.com/api/projects')
 
-        projectInfo.push(...result.data)
+        if (!projectInfo.length) projectInfo.push(...result.data)
         return projectInfo
     }
 
