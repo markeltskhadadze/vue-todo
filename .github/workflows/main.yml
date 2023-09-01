@@ -13,4 +13,4 @@ jobs:
         server: 'br511583.ftp.tools'   
         username: 'br511583_new_pers'   
         password: '38xVXFz99c'   
-        server-dir: '/seo-top.com.ua/www/'
+        server-dir: '/'
