@@ -3,10 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true},
   modules: ['@pinia/nuxt', 'nuxt-simple-sitemap', '@nuxtjs/i18n'],
   // sitemap rules
-  routeRules: {
-    '/admin/**': { index: false },
-    '/login': { index: false }
-  },
+  // routeRules: {
+  //   '/admin/**': { index: false },
+  //   '/login': { index: false }
+  // },
   i18n: {
     locales: [
       {
@@ -19,13 +19,13 @@ export default defineNuxtConfig({
       {
         code: "uk",
         name: "Ukrainian",
-        iso: "uk-UK",
+        iso: "uk-UA",
         dir: "rtl",
         file: "uk.js",
       }
     ],
     lazy: true,
-    langDir: "lang",
+    langDir: "locale",
     defaultLocale: "ru",
     detectBrowserLanguage: false
   },

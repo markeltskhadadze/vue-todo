@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { onMounted, computed, type Ref, ref} from 'vue'
-  import { homePageData } from '../../stores/home-page-data'
-  import { adminData } from '../../stores/admin-data'
+  import { homePageData } from '~/stores/home-page-data'
+  import { adminData } from '~/stores/admin-data'
 
   const homeData = homePageData()
   const admin = adminData()
