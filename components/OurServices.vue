@@ -15,7 +15,7 @@
 
 <template>
   <div class="logs-block">
-    <h2>{{ $t("services.title") }}</h2>
+    <h2>Мы предоставляем лучшие услуги</h2>
     <ServiceContent :services="services" />
   </div>
 </template>

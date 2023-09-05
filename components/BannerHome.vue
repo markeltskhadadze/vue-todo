@@ -18,12 +18,12 @@
 <template>
   <div class="top-content">
     <div class="banner-content">
-      <h1>{{ $t("home_banner.title") }}</h1>
+      <h1>Увеличивайте посещаемость вашего сайта вместе с нами!</h1>
       <p>Какой то текст</p>
       <div class="flex justify-center">
-        <button class="banner-button">{{ $t("home_banner.btn_text") }}</button>
+        <button class="banner-button">Заказать продвижение</button>
         <NuxtLink to="/tariffs" class="banner-button">
-          {{ $t("home_banner.link") }}
+          Тарифы
         </NuxtLink>
       </div>
     </div>
