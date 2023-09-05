@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import OurServices from '../components/OurServices.vue'
-import ReviewsBlock from '../components/ReviewsBlock.vue'
-import BannerHome from '../components/BannerHome.vue'
-import SuccessFuture from '../components/SuccessFuture.vue'
-import CounterBlock from '../components/CounterBlock.vue'
-import AnalyticsBock from '../components/AnalyticsBock.vue'
-import WhyWe from '../components/WhyWe.vue'
-import OurCases from '../components/OurCases.vue'
+  import OurServices from '../components/OurServices.vue'
+  // import ReviewsBlock from '../components/ReviewsBlock.vue'
+  import BannerHome from '../components/BannerHome.vue'
+  import SuccessFuture from '../components/SuccessFuture.vue'
+  import CounterBlock from '../components/CounterBlock.vue'
+  // import AnalyticsBock from '../components/AnalyticsBock.vue'
+  // import WhyWe from '../components/WhyWe.vue'
+  import OurCases from '../components/OurCases.vue'
+  import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -19,5 +20,6 @@ import OurCases from '../components/OurCases.vue'
 <!--  <AnalyticsBock />-->
   <OurCases />
 <!--  <WhyWe />-->
-  <ReviewsBlock />
+<!--  <ReviewsBlock />-->
+  <Footer />
 </template>

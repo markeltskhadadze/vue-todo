@@ -11,4 +11,8 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .content-wrapper {
+    height: 100vh;
+  }
+</style>

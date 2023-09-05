@@ -27,7 +27,7 @@
           </li>
         </ul>
       </div>
-      <LangSwitcher />
+<!--      <LangSwitcher />-->
     </div>
   </div>
 </template>
